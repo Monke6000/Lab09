@@ -1,0 +1,17 @@
+1. ¿Cuál es la diferencia entre FileWriter(archivo) y FileWriter(archivo, true)? ¿Qué pasaría con la bitácora si usaras el primero?
+FileWriter(archivo) borra todo lo que tenía el documento y empieza a escribir desde cero. En cambio, si le agregas el true, simplemente añade el texto nuevo al final sin borrar nada de lo anterior. Si no usáramos el true en nuestra bitácora, el historial se borraría en cada turno y siempre tendríamos guardado únicamente el último ataque.
+
+2. ¿Por qué es importante verificar si un archivo existe antes de leerlo? ¿Qué excepción lanzaría Java si intentas leer un archivo que no existe sin verificar?
+Es clave porque si intentas abrir algo que no existe, el programa "crashea" y se cierra de golpe. Si no lo verificas, Java te avienta un error llamado FileNotFoundException. Checar si existe antes de hacer algo nos deja mostrar un mensaje tranquilo (como "No hay datos guardados") en vez de que el juego explote.
+
+3. ¿Qué ventaja tiene BufferedReader sobre leer el archivo directamente con FileReader? ¿Qué hace el "buffer" en este contexto?
+La ventaja es que es muchísimo más rápido. FileReader lee el archivo letra por letra directo del disco duro, lo que lo hace lentísimo. En cambio, BufferedReader usa un "buffer" (una especie de memoria temporal) para traerse un bloque grande de texto de un solo jalón y luego te lo va entregando línea por línea súper rápido.
+
+4. ¿Definir Enums en java, para qué sirven investigar y listar clases similares a BufferedReader y BufferedWriter y FileReader y FileWriter?
+Los Enums sirven para crear listas de opciones estrictas. Por ejemplo, si tienes un enum de Clase { DRUIDA, GUERRERO, ARQUERO }, bloqueas la posibilidad de que alguien escriba un nombre inválido o con faltas de ortografía.
+
+Clases similares para leer o guardar cosas:
+
+Para leer: Scanner (el más fácil y común para leer texto o datos de la consola) y FileInputStream (para leer archivos más complejos, como imágenes).
+
+Para escribir: PrintWriter (es súper cómodo porque usas println igual que en la consola) y FileOutputStream (para guardar archivos pesados o bytes directamente)
